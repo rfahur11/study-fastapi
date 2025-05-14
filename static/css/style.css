@@ -1,0 +1,14 @@
+body {
+    padding-bottom: 20px;
+}
+
+.jumbotron {
+    padding: 3rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+}
+
+.card {
+    margin-bottom: 20px;
+}

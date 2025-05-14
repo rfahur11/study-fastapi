@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Post</h1>
+
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+
+<div class="card">
+    <div class="card-body">
+        <form method="post" action="/web/posts/{{ post.id }}/edit">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" id="content" name="content" rows="5" required>{{ post.content }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="author_id" class="form-label">Author</label>
+                <select class="form-select" id="author_id" name="author_id" required>
+                    <option value="">Select an author</option>
+                    {% for user in users %}
+                    <option value="{{ user.id }}" {% if post.author_id == user.id %}selected{% endif %}>
+                        {{ user.username }} ({{ user.email }})
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="published" name="published" value="true" {% if post.published %}checked{% endif %}>
+                <label class="form-check-label" for="published">Published</label>
+            </div>
+            <div class="d-flex">
+                <button type="submit" class="btn btn-primary">Update Post</button>
+                <a href="/web/posts" class="btn btn-secondary ms-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

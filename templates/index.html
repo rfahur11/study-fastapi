@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to FastAPI CRUD Demo</h1>
+    <p class="lead">This is a sample application demonstrating FastAPI with PostgreSQL and Jinja2 templates.</p>
+    <hr class="my-4">
+    <p>Use the navigation links to explore the application or try out the API directly.</p>
+    <div class="mt-4">
+        <a class="btn btn-primary btn-lg" href="/web/users" role="button">View Users</a>
+        <a class="btn btn-secondary btn-lg" href="/web/posts" role="button">View Posts</a>
+        <a class="btn btn-info btn-lg" href="/docs" role="button">API Documentation</a>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">User Management</h5>
+                <p class="card-text">Create, read, update and delete users.</p>
+                <a href="/web/users" class="btn btn-primary">Manage Users</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Post Management</h5>
+                <p class="card-text">Create, read, update and delete posts.</p>
+                <a href="/web/posts" class="btn btn-primary">Manage Posts</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">API Documentation</h5>
+                <p class="card-text">Interactive API documentation with Swagger UI.</p>
+                <a href="/docs" class="btn btn-primary">View API Docs</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
